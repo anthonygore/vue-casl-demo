@@ -18,12 +18,12 @@ let users = [
   {
     id: 1,
     name: 'Jeff',
-    active: true
+    active: false
   },
   {
     id: 2,
     name: 'George',
-    active: false
+    active: true
   }
 ];
 
