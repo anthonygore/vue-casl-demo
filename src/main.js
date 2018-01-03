@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-const USER_ID = 1;
-
-import defineAbilitiesFor from '../resources/ability';
-let ability = defineAbilitiesFor(USER_ID);
+const defineAbilitiesFor = require('../resources/ability');
+let data = JSON.parse(window.data);
+let activeUser = data.users.find(user => user.active);
+let ability = defineAbilitiesFor(activeUser.id);
 Vue.prototype.$can = ability.can.bind(ability);
 
 new Vue({

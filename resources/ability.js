@@ -1,8 +1,8 @@
-import { AbilityBuilder } from 'casl';
+const casl = require('casl');
 
-export default function(user) {
-  return AbilityBuilder.define(can => {
+module.exports = function defineAbilitiesFor(user) {
+  return casl.AbilityBuilder.define(can => {
     can(['read', 'create'], 'all');
     can(['update', 'delete'], 'all', { user: user });
   });
-}
+};
