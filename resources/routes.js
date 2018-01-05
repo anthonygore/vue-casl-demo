@@ -5,10 +5,12 @@ const fs = require("fs");
 
 let posts = [
   {
+    type: 'Post',
     user: 1,
     content: '1 used cat, good condition'
   },
   {
+    type: 'Post',
     user: 2,
     content: 'Second hand bathroom wallpaper'
   }
