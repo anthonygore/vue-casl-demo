@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
-
+import abilityPlugin from './ability-plugin';
 const defineAbilitiesFor = require('../resources/ability');
-let data = JSON.parse(window.data);
-let activeUser = data.users.find(user => user.active);
+
+let { posts, users } = JSON.parse(window.data);
+let activeUser = users.find(user => user.active);
 let ability = defineAbilitiesFor(activeUser.id);
-Vue.prototype.$can = ability.can.bind(ability);
+Vue.use(abilityPlugin, ability);
 
 new Vue({
   el: '#app',

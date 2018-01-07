@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <div class="content">{{ post.content }} <br/><small>posted by {{ username }}</small></div>
-    <button @click="del(post)">Delete</button>
+    <button @click="del">Delete</button>
   </div>
 </template>
 <script>
@@ -10,11 +10,11 @@
   export default {
     props: ['post', 'username'],
     methods: {
-      del(post) {
-        if (this.$can('delete', post)) {
-          axios.get(`/delete/${post.user}`, ).then(res => {
+      del() {
+        if (this.$can('delete', this.post)) {
+          axios.get(`/delete/${this.post.user}`, ).then(res => {
             if (res.data.success) {
-              this.$emit('delete-post', post);
+              this.$emit('delete-post', this.post);
               this.$emit('err', false);
             } else {
               this.$emit('err', 'There was an error!');
