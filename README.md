@@ -1,4 +1,4 @@
-# vue-casl
+# vue-casl-demo
 
 > Demo of manage permissions in an authenticated Vue app with CASL
 
